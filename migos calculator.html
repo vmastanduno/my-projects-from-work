@@ -1,0 +1,79 @@
+<center>
+<body background="migos.jpg">
+<div style="background-color: white; height:25px; width:250px"><font id="numbers"></font></div>
+<div> 
+<button id="0">0</button>
+<button id="1">1</button> 
+<button id="2">2</button> <br/>
+<button id="3">3</button>
+<button id="4">4</button> 
+<button id="5">5</button> <br/>
+<button id="6">6</button>
+<button id="7">7</button>
+<button id="8">8</button> <br/>
+<button id="9">9</button> 
+<button id="multiply">*</button> 
+<button id="division">/</button> <br/>
+<button id="addition">+</button> 
+<button id="subtraction">-</button> 
+<button id="equals">=</button><br/>
+<button id="clear">clear</button>
+<button id="backspace">backspace</button>
+</div>  
+</center>
+<script>
+    document.getElementById("1").addEventListener("click",myfunction)
+    document.getElementById("2").addEventListener("click",myfunction)
+    document.getElementById("3").addEventListener("click",myfunction)
+    document.getElementById("4").addEventListener("click",myfunction)
+    document.getElementById("5").addEventListener("click",myfunction)
+    document.getElementById("6").addEventListener("click",myfunction)
+    document.getElementById("7").addEventListener("click",myfunction)
+    document.getElementById("8").addEventListener("click",myfunction)
+    document.getElementById("9").addEventListener("click",myfunction)
+    document.getElementById("0").addEventListener("click",myfunction)
+    document.getElementById("multiply").addEventListener("click",myfunction)
+    document.getElementById("division").addEventListener("click",myfunction)
+    document.getElementById("subtraction").addEventListener("click",myfunction)
+    document.getElementById("addition").addEventListener("click",myfunction)
+    document.getElementById("equals").addEventListener("click",equalsfunction)
+    function myfunction (e){
+        document.getElementById("numbers").innerText+=e.srcElement.textContent
+    }
+    function equalsfunction(){
+        alert("migos")
+        let font=document.getElementById("numbers").innerText;
+        let result;
+        
+        if (font.includes("+")){
+            let num1=font.substring(0,font.indexOf("+"))
+            let num2=font.substring(font.indexOf("+")+1, font.length)
+            result=parseFloat(num1)+parseFloat(num2)
+        
+        }else if (font.includes("-")){
+            let num1=font.substring(0,font.indexOf("-"))
+            let num2=font.substring(font.indexOf("-")+1, font.length)
+            result=parseFloat(num1)-parseFloat(num2)
+           
+            }else if (font.includes("*")){
+                let num1=font.substring(0,font.indexOf("*"))
+            let num2=font.substring(font.indexOf("*")+1, font.length)
+            result=parseFloat(num1)*parseFloat(num2)
+          
+            }else if (font.includes("/")){
+                let num1=font.substring(0,font.indexOf("/"))
+            let num2=font.substring(font.indexOf("/")+1, font.length)
+            result=parseFloat(num1)/parseFloat(num2)}
+            document.getElementById("numbers").innerText=result
+    }
+    document.getElementById("clear").addEventListener("click",clearfunction)
+    function clearfunction(){
+        document.getElementById("numbers").innerText=""
+    }
+    document.getElementById("backspace").addEventListener("click",backfunction)
+    function backfunction(){
+        let font=document.getElementById("numbers").innerText
+        let result=font.substring(0,font.length-1)
+        document.getElementById("numbers").innerText=result
+    }
+</script>

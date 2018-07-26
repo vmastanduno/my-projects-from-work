@@ -1,0 +1,43 @@
+<center>
+<div style="border:black solid 1px; width:225px; float:left">
+<div style="width:100px; height:100px; background-color: blue; display: inline-block">Chips</br>A1</br>1.00$</div>
+<div style="width:100px; height:100px; background-color: purple; display: inline-block">Candy</br>A2</br>1.00$</div> </br>
+<div style="width:100px; height:100px; background-color:yellow; display: inline-block">Food</br>B1</br>1.00$</div>
+<div style="width:100px; height:100px; background-color:yellowgreen; display: inline-block">Drink</br>B2</br>1.00$</div>
+</div>
+</center>
+<div style="background-color:black; width:100px; height:200px; float: left">
+<div style="background-color:white; height:25px; width:150px"><font id="numbers"></font></div>
+<button id="A">A</button>
+<button id="B">B</button> </br>
+<button id="1">1</button>
+<button id="2">2</button>  
+</div> 
+<script>
+document.getElementById("A").addEventListener("click",myfunction)
+document.getElementById("B").addEventListener("click",myfunction)
+document.getElementById("1").addEventListener("click",myfunction)
+document.getElementById("2").addEventListener("click",myfunction)
+let isDisplayingPrice=false
+    function myfunction (e){
+        if(isDisplayingPrice=true){            
+            document.getElementById("numbers").innerText+=e.srcElement.textContent
+            isDisplayingPrice = false
+        }else{
+        document.getElementById("numbers").innerText+=e.srcElement.textContent
+        }
+    let numbers=document.getElementById("numbers").innerText
+    if (numbers=="A1" || numbers=="A2" || numbers=="B1" || numbers=="B2"){
+        document.getElementById ("numbers").innerText="1.00$"
+        isDisplayingPrice=true
+    }else{ alert ("Please enter a valid item ID")
+    }
+    }
+</script>
+
+
+
+
+
+
+
